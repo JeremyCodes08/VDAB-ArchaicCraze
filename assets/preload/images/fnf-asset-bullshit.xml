@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="fnf-asset-bullshit.png">
+	<!-- Created with Adobe Animate version 23.0.0.407 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="menu_freeplay_basic0000" x="0" y="0" width="195" height="119"/>
+	<SubTexture name="menu_freeplay_white0000" x="195" y="0" width="192" height="116"/>
+	<SubTexture name="menu_options_basic0000" x="387" y="0" width="166" height="118"/>
+	<SubTexture name="menu_options_white0000" x="553" y="0" width="163" height="114"/>
+	<SubTexture name="menu_story_mode_basic0000" x="0" y="119" width="371" height="208"/>
+	<SubTexture name="menu_story_mode_white0000" x="371" y="119" width="368" height="205"/>
+</TextureAtlas>

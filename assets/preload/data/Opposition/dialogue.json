@@ -1,0 +1,76 @@
+{
+	"dialogue": [
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "bf",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "helo names boyfriend from friday night funkin"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "pearl",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "ho la                                       names porl from harlem reunion"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "bf",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "wanna rap, ladde?"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "pearl",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "first of all why you here?? "
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "bf",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "rappin"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "pearl",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "ya ballin????"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "bf",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "no, rapping you idiot"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "pearl",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "oh you rape "
+		},
+		{
+			"sound": "",
+			"speed": 0.01,
+			"portrait": "bf",
+			"boxState": "angry",
+			"expression": "confused",
+			"text": "NO IT'S RnAPPING, DIDN'T YOU UNDERSTAND?????????"
+		}
+	]
+}

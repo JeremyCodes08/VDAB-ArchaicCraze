@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="storymenu.png">
+	<!-- Created with Adobe Animate version 23.0.0.407 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="nanambi_week0000" x="0" y="0" width="328" height="353"/>
+	<SubTexture name="noleaks0000" x="328" y="0" width="328" height="353"/>
+	<SubTexture name="turbi_week0000" x="656" y="0" width="328" height="353"/>
+</TextureAtlas>
