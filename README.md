@@ -1,3 +1,19 @@
+# Vs Dave and Bambi: Archaic Craze
+![a](https://github.com/JeremyCodes08/VDAB-ArchaicCraze/assets/117064691/ba92c91f-45de-40eb-b707-e25aa0624061)
+
+The goofy Dave and Bambi mod inducing new content and stuff (content isn't finished yet, also theres scrapped stuff into the source code so yea).
+
+## Credits:
+
+[_JeremyCodesOfficial (Me) - Coder, artist](https://github.com/JeremyCodes08)
+[CXIII - 3D artist, composer and animator](https://www.youtube.com/@cyon1135)
+[RedstoneSC - Composer, 2D artist, coder and asset maker](https://www.github.com/RedstoneSC)
+
+## Special thanks
+
+[TheLeerName - Some coding help + shader support!](https://github.com/TheLeerName)
+
+
 # Friday Night Funkin' - Psych Engine
 Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), intended to be a fix for the vanilla version's many issues while keeping the casual play aspect of it. Also aiming to be an easier alternative to newbie coders.
 
