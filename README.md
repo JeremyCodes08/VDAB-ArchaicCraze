@@ -5,9 +5,9 @@ The goofy Dave and Bambi mod inducing new content and stuff (content isn't finis
 
 ## Credits:
 
-[_JeremyCodesOfficial (Me) - Coder, artist](https://github.com/JeremyCodes08)
-[CXIII - 3D artist, composer and animator](https://www.youtube.com/@cyon1135)
-[RedstoneSC - Composer, 2D artist, coder and asset maker](https://www.github.com/RedstoneSC)
+* [_JeremyCodesOfficial (Me) - Coder, artist](https://github.com/JeremyCodes08)
+* [CXIII - 3D artist, composer and animator](https://www.youtube.com/@cyon1135)
+* [RedstoneSC - Composer, 2D artist, coder and asset maker](https://www.github.com/RedstoneSC)
 
 ## Special thanks
 
