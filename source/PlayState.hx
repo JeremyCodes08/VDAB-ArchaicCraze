@@ -23,7 +23,7 @@ import flixel.addons.effects.chainable.FlxWaveEffect;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.graphics.atlas.FlxAtlas;
 import flixel.graphics.frames.FlxAtlasFrames;
-import flixel.group.FlxGroup.FlxTypedGroup;
+import flixel.group.FlxGroup.FlxTypedGroup; // bruh
 import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
 import flixel.math.FlxRect;
@@ -1220,7 +1220,7 @@ class PlayState extends MusicBeatState
 		
 		if(ClientPrefs.downScroll) healthBarBG.y = 0.11 * FlxG.height;
 
-		healthBar = new FlxBar(healthBarBG.x + 4, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 8), Std.int(healthBarBG.height - 8), this,
+		healthBar = new FlxBar(healthBarBG.x + 4, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 10), Std.int(healthBarBG.height - 8), this,
 			'health', 0, 2);
 		healthBar.scrollFactor.set();
 		// healthBar
@@ -1243,7 +1243,7 @@ class PlayState extends MusicBeatState
 		add(iconP2);
 		reloadHealthBarColors();
 
-		scoreTxt = new FlxText(0, healthBarBG.y + 36, FlxG.width, "", 16); // more bullshit, small size :)
+		scoreTxt = new FlxText(0, healthBarBG.y + 50, FlxG.width, "", 16); // more bullshit, small size :)
 		scoreTxt.setFormat(font, 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		scoreTxt.scrollFactor.set();
 		scoreTxt.borderSize = 1.25;
@@ -2988,15 +2988,6 @@ class PlayState extends MusicBeatState
 		if(nps > maxNps){
 			maxNps = nps;
 		} 
-
-		if(SONG.song == "Opposition"){
-			opponentStrums.forEach(function(spr:FlxSprite){
-				spr.x = ((FlxG.width / 12) - (spr.width / 7)) + Math.sin(timeElapsed + (spr.ID * 500));
-			});
-			playerStrums.forEach(function(spr:FlxSprite){
-				spr.x = ((FlxG.width / 2) - (spr.width / 2)) + Math.sin(timeElapsed + (spr.ID * 300)); // i dont have experience in modcharting yet :/
-			});
-		}
 
 		if(ClientPrefs.shaders){
 			switch (SONG.song.toLowerCase()){
@@ -5340,16 +5331,17 @@ class PlayState extends MusicBeatState
 		}
 
 
+		var funneh:Float = Math.max(Math.min(healthBar.value, 1.9), 0.1);
+
+		iconP1.setGraphicSize(Std.int(iconP1.width + (50 * (0.1 + funneh))), Std.int(iconP1.width - (25 * funneh)));
+		iconP2.setGraphicSize(Std.int(iconP2.width + (50 * (2-funneh) + 0.1)), Std.int(iconP1.width - (25 * (2-funneh) + 0.1))); // no
 		if(curBeat % gfSpeed ==0){
 			if(curBeat % (gfSpeed * 4) == 0){
 				if(curBeat % (gfSpeed * 2) == 0){
 					//iconP1.scale.set(1.1, 0.8);
 					//iconP2.scale.set(1.1, 1.3);
-					FlxTween.angle(iconP1, 20, 0, Conductor.crochet / 1300 * gfSpeed, {ease: FlxEase.quadOut});
-					FlxTween.angle(iconP2, -20, 0, Conductor.crochet / 1300 * gfSpeed, {ease: FlxEase.quadOut});
-
-					iconP1.setGraphicSize(Std.int(iconP1.width - 50), Std.int(iconP1.width + 25));
-					iconP2.setGraphicSize(Std.int(iconP2.width + 50), Std.int(iconP1.width - 25)); // no
+					FlxTween.angle(iconP1, (20 * (0.1 + funneh)) , 0, Conductor.crochet / 1300 * gfSpeed, {ease: FlxEase.quadOut});
+					FlxTween.angle(iconP2, (-20 * (2-funneh) + 0.1), 0, Conductor.crochet / 1300 * gfSpeed, {ease: FlxEase.quadOut});
 	
 					//FlxTween.tween(iconP1, {'scale.x':1, 'scale.y':1}, Conductor.crochet/1300*gfSpeed, {ease:FlxEase.quadOut});
 					//FlxTween.tween(iconP2, {'scale.x':1, 'scale.y':1}, Conductor.crochet/1300*gfSpeed, {ease:FlxEase.quadOut});
@@ -5357,8 +5349,6 @@ class PlayState extends MusicBeatState
 				else{
 					//iconP1.scale.set(1.1, 1.3);
 					//iconP2.scale.set(1.1, 0.8);
-					iconP1.setGraphicSize(Std.int(iconP1.width + 50), Std.int(iconP1.width - 25));
-					iconP2.setGraphicSize(Std.int(iconP2.width + 50), Std.int(iconP1.width - 25)); // no
 					iconP1.angle = 0;
 					iconP2.angle = 0;
 					//FlxTween.tween(iconP1, {'scale.x':1, 'scale.y':1}, Conductor.crochet/1300*gfSpeed, {ease:FlxEase.quadOut});
@@ -5369,12 +5359,8 @@ class PlayState extends MusicBeatState
 				if(curBeat % (gfSpeed * 2) == 0){
 					//iconP1.scale.set(1.1, 0.8);
 					//iconP2.scale.set(1.1, 1.3);
-
-					iconP1.setGraphicSize(Std.int(iconP1.width + 50), Std.int(iconP1.width - 25));
-					iconP2.setGraphicSize(Std.int(iconP2.width - 50), Std.int(iconP1.width + 25)); // no
-
-					FlxTween.angle(iconP1, -20, 0, Conductor.crochet / 1300 * gfSpeed, {ease: FlxEase.quadOut});
-					FlxTween.angle(iconP2, 20, 0, Conductor.crochet / 1300 * gfSpeed, {ease: FlxEase.quadOut});
+					FlxTween.angle(iconP1, (-20 * (0.1 + funneh)), 0, Conductor.crochet / 1300 * gfSpeed, {ease: FlxEase.quadOut});
+					FlxTween.angle(iconP2,  (20 * (2-funneh) + 0.1), 0, Conductor.crochet / 1300 * gfSpeed, {ease: FlxEase.quadOut});
 	
 					//FlxTween.tween(iconP1, {'scale.x':1, 'scale.y':1}, Conductor.crochet/1300*gfSpeed, {ease:FlxEase.quadOut});
 					//FlxTween.tween(iconP2, {'scale.x':1, 'scale.y':1}, Conductor.crochet/1300*gfSpeed, {ease:FlxEase.quadOut});
@@ -5382,9 +5368,6 @@ class PlayState extends MusicBeatState
 				else{
 					//iconP1.scale.set(1.1, 1.3);
 					//iconP2.scale.set(1.1, 0.8);
-
-					iconP1.setGraphicSize(Std.int(iconP1.width + 50), Std.int(iconP1.width - 25));
-					iconP2.setGraphicSize(Std.int(iconP2.width + 50), Std.int(iconP1.width - 25)); // no
 					iconP1.angle = 0;
 					iconP2.angle = 0;
 					//FlxTween.tween(iconP1, {'scale.x':1, 'scale.y':1}, Conductor.crochet/1300*gfSpeed, {ease:FlxEase.quadOut});

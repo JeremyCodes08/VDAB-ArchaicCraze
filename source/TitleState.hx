@@ -603,14 +603,16 @@ class TitleState extends MusicBeatState
 			FlxG.sound.playMusic(Paths.music('freakyMenu'), 1);
 
 			logoBl.angle = -7;
-			if(logoBl.angle == -7){
-				FlxTween.angle(logoBl, logoBl.angle, 7, 4, {ease:FlxEase.quadInOut});
-			}
-			if(logoBl.angle == 7){
 
-				FlxTween.angle(logoBl, logoBl.angle, -7, 4, {ease:FlxEase.quadInOut});
-			}
-
+			new FlxTimer().start(1.15, tmr ->{
+				if(logoBl.angle == -7){
+					FlxTween.angle(logoBl, logoBl.angle, 7, 4, {ease:FlxEase.quadInOut});
+				}
+				if(logoBl.angle == 7){
+	
+					FlxTween.angle(logoBl, logoBl.angle, -7, 4, {ease:FlxEase.quadInOut});
+				}
+			}, 0);
 			skippedIntro = true;
 		}
 	}
