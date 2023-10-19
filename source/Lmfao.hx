@@ -92,8 +92,8 @@ float insideRange(float v, float bottom, float top) {
 }
 
 //inputs
-float AMT = 0.2; //0 - 1 glitch amount
-float SPEED = 0.6; //0 - 1 speed
+float AMT = 0.4; //0 - 1 glitch amount
+float SPEED = 0.5; //0 - 1 speed
    
 void main()
 {
@@ -138,7 +138,7 @@ void main()
 	}
 }
 
-/*class OppositionEffect extends BaseEffect { // scrappin' this cuz it feels unoriginal
+/*class OppositionEffect extends BaseEffect { // scrappin' this cuz it feels unoriginal + its stolen code from official dave and bambi respoitory
 	public function new() {
 		shader = new FlxRuntimeShader("
 			#pragma header
