@@ -1,13 +1,23 @@
 # Vs Dave and Bambi: Archaic Craze
 ![a](https://github.com/JeremyCodes08/VDAB-ArchaicCraze/assets/117064691/ba92c91f-45de-40eb-b707-e25aa0624061)
 
-The goofy Dave and Bambi mod inducing new content and stuff (content isn't finished yet, also theres scrapped stuff into the source code so yea).
+The swag Dave and Bambi FanMod with new Bambisonas and other stuffs!.
+
+## Special features:
+-Running on an new engine, Craze Engine(Psych Engine with swaggy changes)
+-Running with swaggy shaders (ft. TheLeerName)
+-New content (bambisonas, songs and etc.)
+-Better graphics
+-Better gameplay
+
+
+
 
 ## Credits:
 
-* [_JeremyCodesOfficial (Me) - Coder, artist](https://github.com/JeremyCodes08)
-* [CXIII - 3D artist, composer and animator](https://www.youtube.com/@cyon1135)
-* [RedstoneSC - Composer, 2D artist, coder and asset maker](https://www.github.com/RedstoneSC)
+* [_JeremyCodesOfficial (Me)](https://github.com/JeremyCodes08) - Coder, artist
+* [CXIII](https://www.youtube.com/@cyon1135) - 3D artist, composer and animator
+* [RedstoneSC](https://www.github.com/RedstoneSC) - Composer, 2D artist, coder and asset maker
 
 ## Special thanks
 
