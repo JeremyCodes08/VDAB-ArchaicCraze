@@ -4,11 +4,11 @@
 The swag Dave and Bambi FanMod with new Bambisonas and other stuffs!.
 
 ## Special features:
-*Running on an new engine, Craze Engine(Psych Engine with swaggy changes)
-*Running with swaggy shaders (ft. TheLeerName)
-*New content (bambisonas, songs and etc.)
-*Better graphics
-*Better gameplay
+* Running on an new engine, Craze Engine(Psych Engine with swaggy changes)
+* Running with swaggy shaders (ft. TheLeerName)
+* New content (bambisonas, songs and etc.)
+* Better graphics
+* Better gameplay
 
 
 
