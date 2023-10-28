@@ -4916,7 +4916,7 @@ class PlayState extends MusicBeatState
 				char.playAnim(animToPlay, true);
 				char.holdTimer = 0;
 
-				if(dad.animation.curAnim != null){
+				
 					switch (Std.int(Math.abs(note.noteData))){
 						case 0:
 							camFollow.x -= laOffset;
@@ -4926,7 +4926,7 @@ class PlayState extends MusicBeatState
 							camFollow.y -= laOffset;
 						case 3:
 							camFollow.x += laOffset;
-				}
+				
 
 				new FlxTimer().start(1, func ->{
 					charoffsetx = 0;
@@ -5034,11 +5034,11 @@ class PlayState extends MusicBeatState
 							charoffsety -= laOffset;
 						case 3:
 							charoffsetx += laOffset;
-				}
-				new FlxTimer().start(1, func ->{
-					charoffsetx = 0;
-					charoffsety = 0;
-				});
+				   }
+			     	new FlxTimer().start(1, func ->{
+			     		charoffsetx = 0;
+				    	charoffsety = 0;
+			    	});
 				}
 
 				if(note.noteType == 'Hey!') {
