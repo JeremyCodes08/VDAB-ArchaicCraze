@@ -85,16 +85,16 @@ class PlayState extends MusicBeatState
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
 	public static var ratingStuff:Array<Dynamic> = [
-		['You Suck!', 0.2], //From 0% to 19%
-		['Shit', 0.4], //From 20% to 39%
-		['Bad', 0.5], //From 40% to 49%
-		['Bruh', 0.6], //From 50% to 59%
-		['Meh', 0.69], //From 60% to 68%
-		['Nice', 0.7], //69%
-		['Good', 0.8], //From 70% to 79%
-		['Great', 0.9], //From 80% to 89%
-		['Sick!', 1], //From 90% to 99%
-		['Perfect!!', 1] //The value on this one isn't used actually, since Perfect is always "1"
+		['D', 0.2], //From 0% to 19%
+		['C', 0.4], //From 20% to 39%
+		['B', 0.5], //From 40% to 49%
+		['A', 0.6], //From 50% to 59%
+		['A.', 0.69], //From 60% to 68%
+		['A:', 0.7], //69%
+		['AA.', 0.8], //From 70% to 79%
+		['AA:', 0.9], //From 80% to 89%
+		['AAA', 1], //From 90% to 99%
+		['S', 1] //The value on this one isn't used actually, since Perfect is always "1"
 	];
 
 	//event variables
@@ -163,7 +163,10 @@ class PlayState extends MusicBeatState
 	var notePressArray:Array<Date> = [];
 
 
+
+
 	var watermark:FlxText;
+	var watermark2:FlxText;
 
 	public var boyfriendGroup:FlxSpriteGroup;
 	public var dadGroup:FlxSpriteGroup;
@@ -1138,19 +1141,20 @@ class PlayState extends MusicBeatState
 
 		timeBarBG = new FlxSprite(0,0).loadGraphic(Paths.image('healthBar'));
 		timeBarBG.screenCenter(X);
-		timeBarBG.y = timeTxt.y + 1;
+		timeBarBG.y = timeTxt.y + 8 ;
 		timeBarBG.alpha = 0;
 		timeBarBG.visible = showTime;
 		timeBarBG.scale.x = 0.1;
 		timeBarBG.scrollFactor.set();
 		
 
-		timeBar = new FlxBar(640 - (Std.int(timeBarBG.width - 200) / 2), timeBarBG.y + 4, LEFT_TO_RIGHT, Std.int(timeBarBG.width - 200), Std.int(timeBarBG.height + 8), this,
+		timeBar = new FlxBar(640 - (Std.int(timeBarBG.width - 200) / 2), timeBarBG.y + 4, LEFT_TO_RIGHT, Std.int(timeBarBG.width - 50), Std.int(timeBarBG.height - 8), this,
 			'songPercent', 0, 1);
 		timeBar.scrollFactor.set();
-		timeBar.createGradientBar([FlxColor.TRANSPARENT], [FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArray[1], dad.healthColorArray[2]), 0x00eeff]); // sussy bussy
+		timeBar.createFilledBar(FlxColor.TRANSPARENT, FlxColor.fromRGB(0,255,247)); // sussy bussy
 		timeBar.numDivisions = 800; //How much lag this causes?? Should i tone it down to idk, 400 or 200?
 		timeBar.alpha = 0;
+		timeBar.screenCenter(X);
 		timeBar.scale.x = 0.1;
 		timeBar.visible = showTime;
 		add(timeBar);
@@ -1253,14 +1257,25 @@ class PlayState extends MusicBeatState
 		watermark = new FlxText(5,healthBar.y + 50,FlxG.width, SONG.song, 16);
 		watermark.setFormat(font, 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		watermark.scrollFactor.set();
-		watermark.borderSize = 1;
+		watermark.borderSize = 1.25;
 		add(watermark);
 		watermark.cameras = [camHUD]; // :)
+
+		watermark2 = new FlxText(0,0,FlxG.width, 'Engine (PE 0.6.3)', 16);
+		watermark2.setFormat(font, 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		watermark2.scrollFactor.set();
+		watermark2.setPosition(FlxG.width - (watermark2.width + 5), FlxG.height - 24);
+		watermark2.borderSize = 1.25;
+		add(watermark2);
+		watermark2.cameras = [camHUD]; // :)
+
+		if(ClientPrefs.downScroll )	watermark2.setPosition(FlxG.width - (watermark2.width + 5), 5);
+
 
 		judgementCounter = new FlxText(1, 0, 0, 20);
 		judgementCounter.setFormat(font, 20, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		judgementCounter.scrollFactor.set();
-		judgementCounter.borderSize = 1;
+		judgementCounter.borderSize = 1.5;
 		judgementCounter.screenCenter(Y);
 		add(judgementCounter);
 		judgementCounter.cameras = [camHUD];
@@ -2239,10 +2254,6 @@ class PlayState extends MusicBeatState
 
 			startTimer = new FlxTimer().start(Conductor.crochet / 1000 / playbackRate, function(tmr:FlxTimer)
 			{
-				if(tmr.loopsLeft % dad.danceEveryNumBeats == 0 && dad.animation.curAnim != null && !dad.animation.curAnim.name.startsWith('sing') && !dad.stunned && gf != null && tmr.loopsLeft % Math.round(gfSpeed * gf.danceEveryNumBeats) == 0 && gf.animation.curAnim != null && !gf.animation.curAnim.name.startsWith("sing") && !gf.stunned && tmr.loopsLeft % boyfriend.danceEveryNumBeats == 0 && boyfriend.animation.curAnim != null && !boyfriend.animation.curAnim.name.startsWith('sing') && !boyfriend.stunned){
-					charoffsetx = 0;
-					charoffsety = 0;
-				}
 
 				if (gf != null && tmr.loopsLeft % Math.round(gfSpeed * gf.danceEveryNumBeats) == 0 && gf.animation.curAnim != null && !gf.animation.curAnim.name.startsWith("sing") && !gf.stunned)
 				{
@@ -3151,24 +3162,7 @@ class PlayState extends MusicBeatState
 				}
 		}
 		if(focusOn.animation.curAnim != null){
-			
-				
-					switch(focusOn.animation.curAnim.name){
-						case 'singLEFT' | 'singLEFT-alt':
-							charoffsetx -= laOffset;
-						case 'singDOWN' | 'singDOWN-alt':
-							charoffsety += laOffset;
-						case 'singRIGHT' | 'singRIGHT-alt':
-							charoffsetx += laOffset;
-						case 'singUP' | 'singUP-alt':
-							charoffsety -= laOffset; // sorry :)
-					}
-				
-				new FlxTimer().start(1, tmr -> {
-					charoffsety = 0;
-					charoffsetx = 0;
-				});
-			
+	
 			
 		}
 
@@ -3195,7 +3189,7 @@ class PlayState extends MusicBeatState
 		}
 
 		if(!cpuControlled){
-			judgementCounter.text = 'Pog!!: ' + sicks + '\nNice!: ' + goods + '\nDamn.: ' + bads + '\nBullshit: ' + shits + '\nCombo: ' + combo;
+			judgementCounter.text = 'Pog!!: ' + sicks + '\nNice!: ' + goods + '\nDamn.: ' + bads + '\nBullshit: ' + shits + '\nCombo: ' + combo + '\nNPS: ' + nps + ' (Max ${maxNps})';
 		}
 		else{
 			judgementCounter.text = 'Pog!!: 0' + '\nNice!: 0' + '\nDamn.: 0' + '\nBullshit: 0' + '\nCombo: 0';
@@ -3203,20 +3197,20 @@ class PlayState extends MusicBeatState
 
 		if(songJumpscareNames.contains(SONG.song)){
 			if(practiceMode){
-				scoreTxt.text = 			scoreTxt.text = 'NPS: ' + nps + ' (Max ${maxNps})' + ' | Score: ' + songScore
+				scoreTxt.text = 			scoreTxt.text = 'Score: ' + songScore
 				+ ' | Combo Breaks: ' + songMisses
 				+ '/10 | Accuracy:'
 				+ ' ${Highscore.floorDecimal(ratingPercent * 100, 2)}% | $nameOfShit';
 				
 			}
 			else{
-				scoreTxt.text = 'NPS: ' + nps + ' (Max ${maxNps})' + ' | Jumpscares: ' + songMisses + '/10';
+				scoreTxt.text = 'Jumpscares: ' + songMisses + '/10';
 				
 			}
 			 
 		}
 		else{
-			scoreTxt.text = 'NPS: ' + nps + ' (Max ${maxNps})' + ' | Score: ' + songScore
+			scoreTxt.text = 'Score: ' + songScore
 			+ ' | Combo Breaks: ' + songMisses
 			+ ' | Accuracy:'
 			+ ' ${Highscore.floorDecimal(ratingPercent * 100, 2)}% | $nameOfShit'; // imma add sex to fnf dnb ac
@@ -4049,7 +4043,7 @@ class PlayState extends MusicBeatState
 		if (!SONG.notes[curSection].mustHitSection)
 		{
 			moveCamera(true);
-			if(focusOn != dad){
+			if(focusOn != dad || focusOn != gf){
 				moveCamera(true);
 			}
 			callOnLuas('onMoveCamera', ['dad']);
@@ -4911,6 +4905,7 @@ class PlayState extends MusicBeatState
 			}
 
 			var char:Character = dad;
+
 			var animToPlay:String = singAnimations[Std.int(Math.abs(note.noteData))] + altAnim;
 			if(note.gfNote) {
 				char = gf;
@@ -4920,6 +4915,25 @@ class PlayState extends MusicBeatState
 			{
 				char.playAnim(animToPlay, true);
 				char.holdTimer = 0;
+
+				if(dad.animation.curAnim != null){
+					switch (Std.int(Math.abs(note.noteData))){
+						case 0:
+							camFollow.x -= laOffset;
+						case 1:
+							camFollow.y += laOffset;
+						case 2:
+							camFollow.y -= laOffset;
+						case 3:
+							camFollow.x += laOffset;
+				}
+
+				new FlxTimer().start(1, func ->{
+					charoffsetx = 0;
+					charoffsety = 0;
+				});
+
+				}
 			}
 		}
 
@@ -4992,6 +5006,9 @@ class PlayState extends MusicBeatState
 			}
 			health += note.hitHealth * healthGain;
 
+		
+			
+
 			if(!note.noAnimation) {
 				var animToPlay:String = singAnimations[Std.int(Math.abs(note.noteData))];
 
@@ -5007,6 +5024,21 @@ class PlayState extends MusicBeatState
 				{
 					boyfriend.playAnim(animToPlay + note.animSuffix, true);
 					boyfriend.holdTimer = 0;
+
+					switch (Std.int(Math.abs(note.noteData))){
+						case 0:
+							charoffsetx -= laOffset;
+						case 1:
+							charoffsety += laOffset;
+						case 2:
+							charoffsety -= laOffset;
+						case 3:
+							charoffsetx += laOffset;
+				}
+				new FlxTimer().start(1, func ->{
+					charoffsetx = 0;
+					charoffsety = 0;
+				});
 				}
 
 				if(note.noteType == 'Hey!') {
@@ -5335,7 +5367,7 @@ class PlayState extends MusicBeatState
 
 		iconP1.setGraphicSize(Std.int(iconP1.width + (50 * (0.1 + funneh))), Std.int(iconP1.width - (25 * funneh)));
 		iconP2.setGraphicSize(Std.int(iconP2.width + (50 * (2-funneh) + 0.1)), Std.int(iconP1.width - (25 * (2-funneh) + 0.1))); // no
-		if(curBeat % gfSpeed ==0){
+		/*if(curBeat % gfSpeed ==0){
 			if(curBeat % (gfSpeed * 4) == 0){
 				if(curBeat % (gfSpeed * 2) == 0){
 					//iconP1.scale.set(1.1, 0.8);
@@ -5374,7 +5406,7 @@ class PlayState extends MusicBeatState
 					//FlxTween.tween(iconP2, {'scale.x':1, 'scale.y':1}, Conductor.crochet/1300*gfSpeed, {ease:FlxEase.quadOut});
 				}
 			}
-		} // big sex
+		} // big sex*/
 
 		iconP1.updateHitbox();
 		iconP2.updateHitbox();

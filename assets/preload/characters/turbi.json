@@ -1,78 +1,78 @@
 {
 	"animations": [
 		{
-			"loop": true,
 			"offsets": [
-				-41,
-				40
+				-210,
+				-340
 			],
-			"anim": "idle",
+			"loop": false,
 			"fps": 24,
-			"name": "Idle",
-			"indices": []
+			"anim": "idle",
+			"indices": [],
+			"name": "Idle_"
 		},
 		{
 			"offsets": [
-				-130,
-				60
+				-310,
+				-230
 			],
 			"loop": false,
 			"fps": 24,
 			"anim": "singRIGHT",
 			"indices": [],
-			"name": "Right"
+			"name": "Right_"
 		},
 		{
 			"offsets": [
-				-140,
-				-230
+				-320,
+				-70
 			],
 			"loop": false,
 			"fps": 24,
-			"anim": "singDOWN",
-			"indices": [],
-			"name": "Down"
-		},
-		{
-			"loop": false,
-			"offsets": [
-				-50,
-				360
-			],
 			"anim": "singUP",
-			"fps": 24,
-			"name": "Up",
-			"indices": []
+			"indices": [],
+			"name": "Up_"
 		},
 		{
 			"offsets": [
-				340,
-				180
+				-130,
+				-200
 			],
 			"loop": false,
 			"fps": 24,
 			"anim": "singLEFT",
 			"indices": [],
-			"name": "Left"
+			"name": "Left_"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-160,
+				-310
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "Down_",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/turbi",
 	"position": [
-		90,
-		430
+		-270,
+		-250
 	],
 	"healthicon": "turbi",
 	"flip_x": false,
 	"healthbar_colors": [
-		224,
-		108,
-		43
+		49,
+		11,
+		57
 	],
 	"camera_position": [
-		0,
-		-40
+		260,
+		285
 	],
-	"sing_duration": 6.1,
-	"scale": 2
+	"sing_duration": 9.99999999999998,
+	"scale": 1.05
 }

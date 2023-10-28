@@ -75,8 +75,9 @@ class FreeplaySelecter extends MusicBeatState{
             FlxG.sound.play(Paths.sound('confirmMenu'));
 
             
-            FlxTween.tween(icons[_curPack], {'scale.x': 10, 'scale.y': 10, alpha:0}, 2, {ease:FlxEase.expoIn});     
-            FlxTween.tween(bg, {'scale.x': 0, 'scale.y': 0, alpha:0}, 2, {ease:FlxEase.expoIn});
+            FlxTween.tween(icons[_curPack], {y: -1280}, 2, {ease:FlxEase.backInOut});     
+
+            FlxTween.tween(bg, {alpha:0}, 1, {ease:FlxEase.expoIn});
             new flixel.util.FlxTimer().start(2, func ->{
                 FlxTransitionableState.skipNextTransIn = true;
                 MusicBeatState.switchState(new FreeplayState());
